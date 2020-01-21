@@ -5,26 +5,22 @@ class MemoryGame {
     this.pickedCards = []
     this.pairsClicked = 0
     this.pairsGuessed = 0
-    this.pairs=cards.length/2
+    this.pairs = cards.length / 2
   }
 
 
-    shuffleCards(array) {
-
-      if (!array) return undefined
-      else {
-    let m = array.length
-     let t
-     let i
-    while (m) {
-      i = Math.floor(Math.random() * m--);
-      t = array[m];
-      array[m] = array[i];
-      array[i] = t;
+  shuffleCards() {
+      let m = this.cards.length
+      let t
+      let i
+      while (m) {
+        i = Math.floor(Math.random() * m--);
+        t = this.cards[m];
+        this.cards[m] = this.cards[i];
+        this.cards[i] = t;
+      }
     }
-    return array;
-    }
-  }
+  
 
 
   checkIfPair(card1, card2) {
@@ -37,8 +33,8 @@ class MemoryGame {
   }
 
 
-isFinished() {
-return this.pairs==this.pairsGuessed? true: false
+  isFinished() {
+    return this.pairs == this.pairsGuessed ? true : false
 
-}
+  }
 }
